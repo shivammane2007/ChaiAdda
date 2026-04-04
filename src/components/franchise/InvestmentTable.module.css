@@ -1,0 +1,140 @@
+.section {
+    background-color: var(--surface-hover);
+    /* Slight offset bg */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    opacity: 0.7;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: center;
+    /* Align center to handle height diff if any */
+}
+
+.card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.featured {
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(198, 156, 109, 0.15);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.featured:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+.featuredBadge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.cardHeader {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.modelName {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.modelDesc {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.price {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--primary);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+}
+
+.currency {
+    font-size: 24px;
+}
+
+.unit {
+    font-size: 16px;
+    color: var(--foreground);
+    opacity: 0.6;
+    font-family: var(--font-body);
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.features li {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.check {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .featured {
+        transform: scale(1);
+    }
+
+    .featured:hover {
+        transform: translateY(-8px);
+    }
+}

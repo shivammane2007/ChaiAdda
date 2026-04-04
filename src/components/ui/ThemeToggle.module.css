@@ -1,0 +1,126 @@
+.toggleBtn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: var(--foreground);
+}
+
+.toggleBtn:hover {
+    background: var(--surface-hover);
+    border-color: var(--primary);
+}
+
+.iconWrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+.sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+.moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Light Mode Logic: If [data-theme='light'] or default */
+/* Actually simpler to rely on parent class or just toggle state logic in JS? 
+   next-themes adds 'dark' class or data-theme attribute.
+   We can style based on implicit context or just swap icons based on JS state if we want strict control.
+   Wait, if I use JS to swap icons in JSX conditionally, I lose the nice CSS transition between them unless I use AnimatePresence or CSS transforms on both existing elements.
+   
+   Better: Render BOTH and use CSS to show/hide based on parent [data-theme].
+   :global([data-theme='dark']) .sun { ... }
+   
+   But CSS Modules scope 'sun'. So I need to use :global logic or just pass a class based on theme check in JS.
+   
+   Let's check theme in JS and apply classes? 
+   Actually, the component above renders both and relies on CSS.
+   But the CSS above sets Sun to opacity 0 hardcoded.
+   I need to toggle classes based on `theme`.
+*/
+
+/* Revised CSS logic via classes applied dynamically or :global selector */
+[data-theme='dark'] .sun,
+:global([data-theme='dark']) .sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+[data-theme='dark'] .moon,
+:global([data-theme='dark']) .moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+/* Default (Light) */
+:global([data-theme='light']) .sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+:global([data-theme='light']) .moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Wait, I can't rely on global selector easily inside CSS Module for local class names unless I wrap it. 
+   But next-themes puts attribute on HTML.
+   So:
+*/
+
+:global(html[data-theme='dark']) .sun {
+    opacity: 0;
+    /* Wait, dark mode usually means I want to switch TO light (Sun button) OR does it show status? 
+     Usually: Show Moon if Light mode (to go dark), Show Sun if Dark mode (to go light).
+     Let's assume:
+     Dark Mode active -> Show Sun icon.
+     Light Mode active -> Show Moon icon.
+  */
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+:global(html[data-theme='dark']) .moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+/* Light Mode (default) */
+:global(html[data-theme='light']) .sun,
+:global(html:not([data-theme='dark'])) .sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+:global(html[data-theme='light']) .moon,
+:global(html:not([data-theme='dark'])) .moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+.togglePlaceholder {
+    width: 40px;
+    height: 40px;
+}

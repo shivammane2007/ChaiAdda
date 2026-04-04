@@ -1,0 +1,73 @@
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Button } from "@/components/ui/Button";
+import styles from "./Navbar.module.css";
+import { clsx } from "clsx";
+
+export function Navbar() {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [scrolled, setScrolled] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    return (
+        <nav className={clsx(styles.navbar, scrolled && styles.scrolled)}>
+            <div className={styles.container}>
+                <div className={styles.logoWrapper}>
+                    <Link href="/" className={styles.logo}>
+                        CHAI<span className={styles.dot}>.</span>
+                    </Link>
+                </div>
+
+                {/* Desktop Menu */}
+                <div className={styles.desktopMenu}>
+                    <Link href="/" className={styles.navLink}>Home</Link>
+                    <Link href="/menu" className={styles.navLink}>Menu</Link>
+                    <Link href="/story" className={styles.navLink}>Our Story</Link>
+                    <Link href="/franchise" className={styles.navLink}>Franchise</Link>
+                    <Link href="/contact" className={styles.navLink}>Contact</Link>
+                </div>
+
+                <div className={styles.actions}>
+                    <ThemeToggle />
+                    <div className={styles.desktopAction}>
+                        <Button size="sm" href="/franchise">Own a Franchise</Button>
+                    </div>
+
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className={styles.menuToggle}
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
+
+                {/* Mobile Menu Overlay */}
+                <div className={clsx(styles.mobileMenu, isOpen && styles.open)}>
+                    <div className={styles.mobileLinks}>
+                        <Link href="/" onClick={() => setIsOpen(false)} className={styles.mobileLink}>Home</Link>
+                        <Link href="/menu" onClick={() => setIsOpen(false)} className={styles.mobileLink}>Menu</Link>
+                        <Link href="/story" onClick={() => setIsOpen(false)} className={styles.mobileLink}>Our Story</Link>
+                        <Link href="/franchise" onClick={() => setIsOpen(false)} className={styles.mobileLink}>Franchise</Link>
+                        <Link href="/contact" onClick={() => setIsOpen(false)} className={styles.mobileLink}>Contact</Link>
+                        <div className={styles.mobileAction}>
+                            <Button className="w-full" href="/franchise" onClick={() => setIsOpen(false)}>Become a Partner</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
+}

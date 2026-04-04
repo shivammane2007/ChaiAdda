@@ -1,0 +1,160 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: var(--foreground);
+}
+
+.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    /* Light mode glass */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+:global([data-theme='dark']) .scrolled {
+    background: rgba(18, 18, 18, 0.85);
+    /* Dark mode glass */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.dot {
+    color: var(--primary);
+}
+
+.desktopMenu {
+    display: none;
+    gap: 32px;
+}
+
+.navLink {
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.desktopAction {
+    display: none;
+}
+
+.menuToggle {
+    display: flex;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* Mobile Menu */
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    /* Cover full screen including header area if needed, but usually below? No, full screen overlay is better for premium feel. */
+    top: var(--header-height);
+    /* Or Start from top? let's fill whole screen but keep header visible? Standard mobile menu usually covers all. */
+    /* Actually standard overlay covers everything or slides in. Let's do slide from top or right. */
+    /* Simplest: Full screen overlay below header */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: var(--background);
+    transform: translateY(-100%);
+    opacity: 0;
+    /* hidden by default interactions */
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+}
+
+.mobileMenu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+    background: var(--background);
+    /* Ensure solid background */
+}
+
+.mobileLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+}
+
+.mobileLink {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.mobileAction {
+    margin-top: 32px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .menuToggle {
+        display: none;
+    }
+
+    .desktopMenu {
+        display: flex;
+    }
+
+    .desktopAction {
+        display: block;
+    }
+
+    .mobileMenu {
+        display: none;
+    }
+}
