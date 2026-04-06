@@ -1,0 +1,80 @@
+.bannerWrapper {
+    width: 100%;
+    overflow: hidden;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+:global([data-theme='dark']) .bannerWrapper {
+    background: #1a1a1a;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+}
+
+.marqueeGroup {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding-right: 64px;
+}
+
+.item {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Glassmorphism variant if preferred */
+.glassEffect {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 768px) {
+    .bannerWrapper {
+        padding: 10px 0;
+    }
+    .item {
+        font-size: 12px;
+        gap: 8px;
+    }
+    .marqueeGroup {
+        gap: 32px;
+        padding-right: 32px;
+    }
+}

@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MenuGrid } from "@/components/menu/MenuGrid";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { MenuBanner } from "@/components/menu/MenuBanner";
 
 export const metadata = {
     title: "Our Menu | Authentic Indian Chai & Snacks",
@@ -13,6 +14,7 @@ export default function MenuPage() {
         <main>
             <Navbar />
             <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
+                <MenuBanner />
                 <SectionWrapper className="bg-surface text-center pb-0">
                     <h1 style={{
                         fontFamily: 'var(--font-heading)',
