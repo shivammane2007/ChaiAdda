@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { MenuGrid } from "@/components/menu/MenuGrid";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { MenuBanner } from "@/components/menu/MenuBanner";
+import heroStyles from "@/components/menu/MenuHero.module.css";
+import Image from "next/image";
 
 export const metadata = {
     title: "Our Menu | Authentic Indian Chai & Snacks",
@@ -15,15 +17,28 @@ export default function MenuPage() {
             <Navbar />
             <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
                 <MenuBanner />
-                <SectionWrapper className="bg-surface text-center pb-0">
-                    <h1 style={{
-                        fontFamily: 'var(--font-heading)',
-                        fontSize: '48px',
-                        marginBottom: '16px'
-                    }}>Our Menu</h1>
-                    <p style={{ opacity: 0.8, maxWidth: '600px', margin: '0 auto' }}>
-                        Hand-crafted blends made with love and tradition.
-                    </p>
+                <SectionWrapper className="bg-surface">
+                    <div className={heroStyles.heroContainer}>
+                        <div className={heroStyles.textContent}>
+                            <h1 className={heroStyles.title}>Our Menu</h1>
+                            <p className={heroStyles.subtitle}>
+                                Hand-crafted blends made with love and tradition. 
+                                Discover our signature collection of authentic Indian teas and artisanal snacks.
+                            </p>
+                        </div>
+                        <div className={heroStyles.imageContent}>
+                            <div className={heroStyles.imageWrapper}>
+                                <Image 
+                                    src="/images/menu-hero.png" 
+                                    alt="Authentic Masala Chai" 
+                                    width={600} 
+                                    height={600} 
+                                    className={heroStyles.image}
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </SectionWrapper>
                 <SectionWrapper>
                     <MenuGrid />
