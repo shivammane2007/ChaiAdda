@@ -66,8 +66,6 @@
 
 .logoImage {
     object-fit: contain;
-    height: 100%;
-    width: auto;
 }
 
 /* On light creamy backgrounds, blend away the white logo background */

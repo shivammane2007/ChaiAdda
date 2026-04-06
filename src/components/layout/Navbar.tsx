@@ -80,6 +80,7 @@ export function Navbar() {
                                 height={60}
                                 className={styles.logoImage}
                                 priority
+                                style={{ width: "auto", height: "auto", maxHeight: "48px" }}
                             />
                         </div>
                     </Link>

@@ -14,6 +14,7 @@ export function FranchiseHero() {
                     fill
                     className={styles.bgImage}
                     priority
+                    sizes="100vw"
                 />
             </div>
 

@@ -44,7 +44,9 @@ export function MenuPairings() {
                                     src={pairing.image1} 
                                     alt="Pairing Item 1" 
                                     fill 
-                                    className={styles.image} 
+                                    className={styles.image}
+                                    sizes="(max-width: 768px) 40vw, 20vw"
+                                    loading="lazy"
                                 />
                             </div>
                             <div className={styles.plus}>+</div>
@@ -53,7 +55,9 @@ export function MenuPairings() {
                                     src={pairing.image2} 
                                     alt="Pairing Item 2" 
                                     fill 
-                                    className={styles.image} 
+                                    className={styles.image}
+                                    sizes="(max-width: 768px) 40vw, 20vw"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>

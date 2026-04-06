@@ -36,6 +36,8 @@ export function ContactSocial() {
                             alt={post.label}
                             fill
                             className={styles.image}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            loading="lazy"
                         />
                         <div className={styles.overlay}>
                             <span className={styles.text}>{post.label}</span>

@@ -36,6 +36,8 @@ export function Philosophy() {
                             width={600}
                             height={800}
                             className={styles.image}
+                            style={{ width: "100%", height: "auto" }}
+                            loading="lazy"
                         />
                         {/* Decorative Element */}
                         <div className={styles.circleGraphic} />

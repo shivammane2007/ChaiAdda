@@ -73,17 +73,11 @@
 .logoContainer {
     position: relative;
     height: 70px;
-    width: 140px; /* Explicit width matching NextImage props */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    width: 140px;
     margin-bottom: 20px;
 }
 
 .logoImage {
-    display: block;
-    height: 100%;
-    width: auto;
     object-fit: contain;
 }
 

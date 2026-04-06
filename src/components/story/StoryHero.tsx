@@ -14,6 +14,8 @@ export function StoryHero() {
                             alt="Tea estate founder"
                             fill
                             className={styles.heroImage}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            loading="lazy"
                         />
                         <div className={styles.imageOverlay} />
                     </div>

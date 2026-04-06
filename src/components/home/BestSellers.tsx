@@ -58,6 +58,8 @@ export function BestSellers() {
                                 alt={blend.title}
                                 fill
                                 className={styles.image}
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                loading="lazy"
                             />
                         </div>
                         <div className={styles.cardContent}>

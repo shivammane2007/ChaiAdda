@@ -79,10 +79,10 @@ export function Footer() {
                             <NextImage
                                 src="/images/logo.png"
                                 alt="ChaiAdda Logo"
-                                width={140}
-                                height={70}
+                                fill
                                 className={styles.logoImage}
                                 priority
+                                sizes="140px"
                             />
                         </div>
                     </Link>

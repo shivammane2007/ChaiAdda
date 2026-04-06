@@ -17,6 +17,7 @@ export function Hero() {
                     className={styles.bgImage}
                     priority
                     quality={90}
+                    sizes="100vw"
                 />
             </div>
 
