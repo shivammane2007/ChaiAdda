@@ -12,6 +12,8 @@ export const metadata = {
     description: "Explore our wide range of chai blends, from classic Masala Chai to signature Saffron Gold.",
 };
 
+import { MenuPairings } from "@/components/menu/MenuPairings";
+
 export default function MenuPage() {
     return (
         <main>
@@ -45,6 +47,7 @@ export default function MenuPage() {
                     </div>
                 </SectionWrapper>
                 <MenuPhilosophy />
+                <MenuPairings />
                 <SectionWrapper style={{ paddingTop: '0' }}>
                     <MenuGrid />
                 </SectionWrapper>

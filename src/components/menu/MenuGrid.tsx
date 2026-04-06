@@ -67,36 +67,74 @@ const products = [
     }
 ];
 
+import { Search, Info } from "lucide-react";
+
 export function MenuGrid() {
     const [activeCategory, setActiveCategory] = React.useState("All");
+    const [searchQuery, setSearchQuery] = React.useState("");
 
     const filteredProducts = activeCategory === "All"
-        ? products
-        : products.filter(p => p.category === activeCategory);
+        ? products.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()))
+        : products.filter(p => p.category === activeCategory && p.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
     return (
         <div className={styles.wrapper}>
-            {/* Category Tabs */}
-            <div className={styles.tabsWrapper}>
-                <div className={styles.tabs}>
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            className={`${styles.tab} ${activeCategory === cat ? styles.activeTab : ""}`}
-                            onClick={() => setActiveCategory(cat)}
-                        >
-                            {cat}
-                        </button>
-                    ))}
+            {/* Search & Tabs Wrapper */}
+            <div className={styles.controlsWrapper}>
+                <div className={styles.searchBox}>
+                    <Search className={styles.searchIcon} size={18} />
+                    <input 
+                        type="text" 
+                        placeholder="Find your favorite brew..." 
+                        className={styles.searchInput}
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </div>
+
+                <div className={styles.tabsWrapper}>
+                    <div className={styles.tabs}>
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                className={`${styles.tab} ${activeCategory === cat ? styles.activeTab : ""}`}
+                                onClick={() => setActiveCategory(cat)}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
 
             {/* Grid */}
-            <div className={styles.grid}>
-                {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} {...product} />
-                ))}
-            </div>
+            {filteredProducts.length > 0 ? (
+                <div className={styles.grid}>
+                    {filteredProducts.map((product) => (
+                        <ProductCard key={product.id} {...product} />
+                    ))}
+                </div>
+            ) : (
+                <div className={styles.emptyState}>
+                    <div className={styles.emptyIcon}>
+                        <Info size={48} />
+                    </div>
+                    <h3 className={styles.emptyTitle}>No Results Found</h3>
+                    <p className={styles.emptyText}>
+                        We couldn't find any products matching "{searchQuery}". 
+                        Maybe try a different category or keywords?
+                    </p>
+                    <button 
+                        className={styles.resetBtn}
+                        onClick={() => {
+                            setSearchQuery("");
+                            setActiveCategory("All");
+                        }}
+                    >
+                        View All Menu
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

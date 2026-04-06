@@ -19,7 +19,7 @@ const BLENDS = [
         title: "Saffron Gold",
         desc: "Kashmiri saffron and crushed almonds for a royal afternoon.",
         price: "$6.00",
-        image: "/images/modern_chai.png",
+        image: "/images/saffron_gold.png",
         badge: "Premium"
     },
     {
@@ -27,7 +27,7 @@ const BLENDS = [
         title: "Cardamom Bliss",
         desc: "Hand-picked green cardamom pods from the hills of Munnar.",
         price: "$4.50",
-        image: "/images/menu_hero_cinematic.png",
+        image: "/images/rose_cardamom.png",
         badge: "Classic"
     },
     {

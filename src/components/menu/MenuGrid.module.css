@@ -2,23 +2,65 @@
     padding: 40px 0;
 }
 
+.controlsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 64px;
+}
+
+.searchBox {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 20px;
+    color: var(--primary);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    padding: 16px 24px 16px 54px;
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(198, 156, 109, 0.1);
+}
+
 .tabsWrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 64px;
     position: sticky;
-    /* Optional sticky functionality */
     top: 90px;
     z-index: 10;
-    padding: 16px 0;
-    background: var(--background);
-    /* Solid background to cover scroll */
-    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-full);
 }
 
 .tabs {
     display: flex;
-    gap: 16px;
+    gap: 8px;
     overflow-x: auto;
     padding: 4px;
     scrollbar-width: none;
@@ -30,31 +72,26 @@
 
 .tab {
     background: transparent;
-    border: 1px solid transparent;
-    /* or var(--border) */
+    border: none;
     padding: 10px 24px;
     border-radius: var(--radius-full);
     font-size: 14px;
     font-weight: 600;
-    color: var(--foreground);
+    color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
-    font-family: var(--font-body);
 }
 
 .tab:hover {
-    background: var(--surface-hover);
+    color: var(--foreground);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .activeTab {
     background: var(--primary);
-    color: #fff;
+    color: #fff !important;
     box-shadow: 0 4px 12px rgba(198, 156, 109, 0.3);
-}
-
-.activeTab:hover {
-    background: var(--primary-dark);
 }
 
 .grid {
@@ -63,9 +100,64 @@
     gap: 32px;
 }
 
+.emptyState {
+    text-align: center;
+    padding: 80px 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.emptyIcon {
+    color: var(--primary);
+    opacity: 0.5;
+    margin-bottom: 8px;
+}
+
+.emptyTitle {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--foreground);
+}
+
+.emptyText {
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.resetBtn {
+    margin-top: 12px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resetBtn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
 @media (max-width: 1024px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tabsWrapper {
+        width: 100%;
+        border-radius: 0;
+        top: 80px;
     }
 }
 
