@@ -1,6 +1,8 @@
 .container {
     padding: 120px 0;
     overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
 }
 
 .grid {

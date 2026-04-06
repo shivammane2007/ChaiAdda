@@ -1,18 +1,20 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { MenuGrid } from "@/components/menu/MenuGrid";
-import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { MenuBanner } from "@/components/menu/MenuBanner";
-import { MenuPhilosophy } from "@/components/menu/MenuPhilosophy";
+import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import heroStyles from "@/components/menu/MenuHero.module.css";
 import Image from "next/image";
+
+// Below-fold components — code split for performance
+const MenuPhilosophy = dynamic(() => import("@/components/menu/MenuPhilosophy").then(m => ({ default: m.MenuPhilosophy })));
+const MenuPairings   = dynamic(() => import("@/components/menu/MenuPairings").then(m => ({ default: m.MenuPairings })));
+const MenuGrid       = dynamic(() => import("@/components/menu/MenuGrid").then(m => ({ default: m.MenuGrid })));
+const Footer         = dynamic(() => import("@/components/layout/Footer").then(m => ({ default: m.Footer })));
 
 export const metadata = {
     title: "Our Menu | Authentic Indian Chai & Snacks",
     description: "Explore our wide range of chai blends, from classic Masala Chai to signature Saffron Gold.",
 };
-
-import { MenuPairings } from "@/components/menu/MenuPairings";
 
 export default function MenuPage() {
     return (
@@ -41,6 +43,7 @@ export default function MenuPage() {
                                     height={600} 
                                     className={heroStyles.image}
                                     priority
+                                    style={{ width: "100%", height: "auto" }}
                                 />
                             </div>
                         </div>
@@ -56,3 +59,4 @@ export default function MenuPage() {
         </main>
     );
 }
+

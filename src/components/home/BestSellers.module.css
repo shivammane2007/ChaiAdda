@@ -1,6 +1,8 @@
 .section {
     padding: 100px 0;
     overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 700px;
 }
 
 .header {

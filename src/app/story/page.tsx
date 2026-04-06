@@ -1,9 +1,12 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { StoryHero } from "@/components/story/StoryHero";
-import { ProcessTimeline } from "@/components/story/ProcessTimeline";
-import { StoryValues } from "@/components/story/StoryValues";
-import { StoryModern } from "@/components/story/StoryModern";
+
+// Below-fold — dynamically imported
+const StoryValues     = dynamic(() => import("@/components/story/StoryValues").then(m => ({ default: m.StoryValues })));
+const ProcessTimeline = dynamic(() => import("@/components/story/ProcessTimeline").then(m => ({ default: m.ProcessTimeline })));
+const StoryModern     = dynamic(() => import("@/components/story/StoryModern").then(m => ({ default: m.StoryModern })));
+const Footer          = dynamic(() => import("@/components/layout/Footer").then(m => ({ default: m.Footer })));
 
 export const metadata = {
     title: "Our Story | 40 Years of Brewing Tradition",
@@ -24,3 +27,4 @@ export default function StoryPage() {
         </main>
     );
 }
+

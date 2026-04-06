@@ -1,10 +1,13 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
-import { Philosophy } from "@/components/home/Philosophy";
-import { FeaturesSection } from "@/components/home/FeaturesSection";
-import { BestSellers } from "@/components/home/BestSellers";
-import { AddaCulture } from "@/components/home/AddaCulture";
+
+// Below-fold: dynamically imported to split JS bundle
+const Philosophy    = dynamic(() => import("@/components/home/Philosophy").then(m => ({ default: m.Philosophy })));
+const BestSellers   = dynamic(() => import("@/components/home/BestSellers").then(m => ({ default: m.BestSellers })));
+const AddaCulture   = dynamic(() => import("@/components/home/AddaCulture").then(m => ({ default: m.AddaCulture })));
+const FeaturesSection = dynamic(() => import("@/components/home/FeaturesSection").then(m => ({ default: m.FeaturesSection })));
+const Footer        = dynamic(() => import("@/components/layout/Footer").then(m => ({ default: m.Footer })));
 
 export default function Home() {
   return (
@@ -19,3 +22,4 @@ export default function Home() {
     </main>
   );
 }
+

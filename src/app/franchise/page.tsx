@@ -1,10 +1,13 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { FranchiseHero } from "@/components/franchise/FranchiseHero";
-import { FranchiseBenefits } from "@/components/franchise/FranchiseBenefits";
-import { InvestmentTable } from "@/components/franchise/InvestmentTable";
-import { SupportEcosystem } from "@/components/franchise/SupportEcosystem";
-import { FranchisePathway } from "@/components/franchise/FranchisePathway";
+
+// Below-fold — code split
+const FranchiseBenefits = dynamic(() => import("@/components/franchise/FranchiseBenefits").then(m => ({ default: m.FranchiseBenefits })));
+const SupportEcosystem  = dynamic(() => import("@/components/franchise/SupportEcosystem").then(m => ({ default: m.SupportEcosystem })));
+const InvestmentTable   = dynamic(() => import("@/components/franchise/InvestmentTable").then(m => ({ default: m.InvestmentTable })));
+const FranchisePathway  = dynamic(() => import("@/components/franchise/FranchisePathway").then(m => ({ default: m.FranchisePathway })));
+const Footer            = dynamic(() => import("@/components/layout/Footer").then(m => ({ default: m.Footer })));
 
 export const metadata = {
     title: "Franchise Opportunity | Own a Premium ChaiAdda",
@@ -26,3 +29,4 @@ export default function FranchisePage() {
         </main>
     );
 }
+

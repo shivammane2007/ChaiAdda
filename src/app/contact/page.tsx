@@ -1,10 +1,13 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { StoreLocator } from "@/components/contact/StoreLocator";
-import { ContactCatering } from "@/components/contact/ContactCatering";
-import { ContactFAQ } from "@/components/contact/ContactFAQ";
-import { ContactSocial } from "@/components/contact/ContactSocial";
+
+// Below-fold — code split
+const ContactCatering = dynamic(() => import("@/components/contact/ContactCatering").then(m => ({ default: m.ContactCatering })));
+const StoreLocator    = dynamic(() => import("@/components/contact/StoreLocator").then(m => ({ default: m.StoreLocator })));
+const ContactFAQ      = dynamic(() => import("@/components/contact/ContactFAQ").then(m => ({ default: m.ContactFAQ })));
+const ContactSocial   = dynamic(() => import("@/components/contact/ContactSocial").then(m => ({ default: m.ContactSocial })));
+const Footer          = dynamic(() => import("@/components/layout/Footer").then(m => ({ default: m.Footer })));
 
 export const metadata = {
     title: "Contact Us | ChaiAdda Locations",
@@ -26,3 +29,4 @@ export default function ContactPage() {
         </main>
     );
 }
+
