@@ -1,0 +1,92 @@
+.container {
+    padding: 100px 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.heading {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    color: var(--foreground);
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.socialCard {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--surface-hover);
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.socialCard:hover .overlay {
+    opacity: 1;
+}
+
+.socialCard:hover .image {
+    transform: scale(1.1);
+}
+
+.text {
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.handle {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--primary);
+    font-weight: 700;
+}

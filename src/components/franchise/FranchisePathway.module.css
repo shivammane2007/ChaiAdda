@@ -1,0 +1,116 @@
+.container {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.heading {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    color: var(--foreground);
+    font-weight: 700;
+}
+
+.pathway {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .pathway::before {
+        content: '';
+        position: absolute;
+        left: 40px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+    }
+}
+
+.step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 0;
+}
+
+@media (min-width: 768px) {
+    .step {
+        padding-left: 80px;
+    }
+}
+
+.number {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(198, 156, 109, 0.4);
+}
+
+@media (min-width: 768px) {
+    .number {
+        position: absolute;
+        left: 17px;
+        top: 0;
+    }
+}
+
+.content {
+    background: var(--surface-hover);
+    padding: 24px 32px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    flex: 1;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.content:hover {
+    transform: translateX(10px);
+    border-color: var(--primary);
+}
+
+.stepTitle {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+.stepText {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--foreground);
+    opacity: 0.8;
+}

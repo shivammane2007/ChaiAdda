@@ -3,7 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { FranchiseHero } from "@/components/franchise/FranchiseHero";
 import { FranchiseBenefits } from "@/components/franchise/FranchiseBenefits";
 import { InvestmentTable } from "@/components/franchise/InvestmentTable";
-import { LeadForm } from "@/components/franchise/LeadForm";
+import { SupportEcosystem } from "@/components/franchise/SupportEcosystem";
+import { FranchisePathway } from "@/components/franchise/FranchisePathway";
 
 export const metadata = {
     title: "Franchise Opportunity | Own a Premium Chai Café",
@@ -14,10 +15,13 @@ export default function FranchisePage() {
     return (
         <main>
             <Navbar />
-            <FranchiseHero />
-            <FranchiseBenefits />
-            <InvestmentTable />
-            <LeadForm />
+            <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
+                <FranchiseHero />
+                <FranchiseBenefits />
+                <SupportEcosystem />
+                <InvestmentTable />
+                <FranchisePathway />
+            </div>
             <Footer />
         </main>
     );

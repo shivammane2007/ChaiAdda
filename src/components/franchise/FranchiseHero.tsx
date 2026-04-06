@@ -9,7 +9,7 @@ export function FranchiseHero() {
             <div className={styles.bgWrapper}>
                 <div className={styles.overlay} />
                 <Image
-                    src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=2670&auto=format&fit=crop"
+                    src="/images/franchise_premium.png"
                     alt="Busy modern chai cafe"
                     fill
                     className={styles.bgImage}

@@ -2,6 +2,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { StoryHero } from "@/components/story/StoryHero";
 import { ProcessTimeline } from "@/components/story/ProcessTimeline";
+import { StoryValues } from "@/components/story/StoryValues";
+import { StoryModern } from "@/components/story/StoryModern";
 
 export const metadata = {
     title: "Our Story | 40 Years of Brewing Tradition",
@@ -12,8 +14,12 @@ export default function StoryPage() {
     return (
         <main>
             <Navbar />
-            <StoryHero />
-            <ProcessTimeline />
+            <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
+                <StoryHero />
+                <StoryValues />
+                <ProcessTimeline />
+                <StoryModern />
+            </div>
             <Footer />
         </main>
     );
