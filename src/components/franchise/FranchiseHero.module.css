@@ -1,12 +1,10 @@
 .hero {
     position: relative;
-    height: 80vh;
+    height: 90vh; /* Increased slightly for better visual balance */
     min-height: 600px;
     display: flex;
     align-items: center;
-    margin-top: -80px;
-    /* Offset header */
-    padding-top: 80px;
+    padding-top: var(--header-height);
 }
 
 .bgWrapper {

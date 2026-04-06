@@ -7,21 +7,21 @@ import { SupportEcosystem } from "@/components/franchise/SupportEcosystem";
 import { FranchisePathway } from "@/components/franchise/FranchisePathway";
 
 export const metadata = {
-    title: "Franchise Opportunity | Own a Premium Chai Café",
-    description: "Join India's fastest growing chai brand. High ROI, low investment, and extensive support. Apply now.",
+    title: "Franchise Opportunity | Own a Premium ChaiAdda",
+    description: "Join India's fastest growing ChaiAdda. High ROI, low investment, and extensive support. Apply now.",
 };
 
 export default function FranchisePage() {
     return (
         <main>
             <Navbar />
-            <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
+            <>
                 <FranchiseHero />
                 <FranchiseBenefits />
                 <SupportEcosystem />
                 <InvestmentTable />
                 <FranchisePathway />
-            </div>
+            </>
             <Footer />
         </main>
     );

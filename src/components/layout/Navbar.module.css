@@ -12,16 +12,27 @@
 }
 
 .scrolled {
-    background: rgba(250, 249, 246, 0.85); /* Slightly more solid creamy glass */
-    backdrop-filter: blur(20px) saturate(200%);
-    -webkit-backdrop-filter: blur(20px) saturate(200%);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    background: rgba(250, 247, 242, 0.75); /* Dynamic light glass */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(42, 39, 35, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 :global([data-theme='dark']) .scrolled {
-    background: rgba(18, 18, 18, 0.85); /* Slightly more solid dark glass */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(18, 18, 18, 0.8); /* Refined dark glass */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heroMode {
+    background: transparent !important;
+    color: #FFFFFF !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.heroMode :global(.lucide) {
+    color: #FFFFFF !important;
 }
 
 .navHidden {
@@ -41,14 +52,32 @@
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
 }
 
-.dot {
-    color: var(--primary);
+.logoContainer {
+    position: relative;
+    height: 48px;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logoImage {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+}
+
+/* On light creamy backgrounds, blend away the white logo background */
+:global([data-theme='light']) .scrolled .logoImage {
+    mix-blend-mode: multiply;
+}
+
+/* Ensure logo remains clear and distinct */
+.logoContainer:hover {
+    opacity: 0.9;
 }
 
 .desktopMenu {

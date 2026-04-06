@@ -18,7 +18,7 @@ export default function MenuPage() {
     return (
         <main>
             <Navbar />
-            <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
+            <div className="navbar-offset">
                 <MenuBanner />
                 <SectionWrapper className="bg-surface" style={{ paddingBottom: '0' }}>
                     <div className={heroStyles.heroContainer}>

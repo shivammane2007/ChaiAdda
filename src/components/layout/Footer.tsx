@@ -3,6 +3,7 @@
 import React from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { 
     Facebook, 
@@ -74,13 +75,22 @@ export function Footer() {
             <div className={styles.grid}>
                 <AnimatedContainer className={styles.brandCol}>
                     <Link href="/" className={styles.logo}>
-                        CHAI<span className={styles.logoDot}>.</span>
+                        <div className={styles.logoContainer}>
+                            <NextImage
+                                src="/images/logo.png"
+                                alt="ChaiAdda Logo"
+                                width={140}
+                                height={70}
+                                className={styles.logoImage}
+                                priority
+                            />
+                        </div>
                     </Link>
                     <p className={styles.tagline} style={{ opacity: 0.7, fontSize: '14px', lineHeight: 1.6 }}>
                         Crafting stories, one cup at a time. Heritage-inspired, contemporary-brewed.
                     </p>
                     <p className={styles.copyright}>
-                        © {new Date().getFullYear()} CHAI Brand. All rights reserved.
+                        © {new Date().getFullYear()} ChaiAdda. All rights reserved.
                     </p>
                 </AnimatedContainer>
 

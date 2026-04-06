@@ -7,15 +7,15 @@ import { ContactFAQ } from "@/components/contact/ContactFAQ";
 import { ContactSocial } from "@/components/contact/ContactSocial";
 
 export const metadata = {
-    title: "Contact Us | Chai Brand Locations",
-    description: "Find a Chai Brand store near you or get in touch with our team for franchise and business inquiries.",
+    title: "Contact Us | ChaiAdda Locations",
+    description: "Find a ChaiAdda store near you or get in touch with our team for franchise and business inquiries.",
 };
 
 export default function ContactPage() {
     return (
         <main>
             <Navbar />
-            <div style={{ paddingTop: '80px' }}>
+            <div className="navbar-offset">
                 <ContactForm />
                 <ContactCatering />
                 <StoreLocator />

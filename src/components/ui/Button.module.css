@@ -40,14 +40,18 @@
     background-color: var(--primary);
     color: #fff;
     border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(198, 156, 109, 0.2);
+    box-shadow: 0 4px 14px rgba(198, 156, 109, 0.25);
+}
+
+:global([data-theme='dark']) .primary {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .primary:hover {
     background-color: var(--primary-dark);
     border-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(198, 156, 109, 0.3);
+    box-shadow: 0 8px 16px rgba(198, 156, 109, 0.35);
 }
 
 .secondary {

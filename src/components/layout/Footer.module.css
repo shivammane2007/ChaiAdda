@@ -66,14 +66,28 @@
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 700;
+    display: block;
+    width: fit-content;
 }
 
-.logoDot {
-    color: var(--primary);
+.logoContainer {
+    position: relative;
+    height: 70px;
+    width: 140px; /* Explicit width matching NextImage props */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
 }
+
+.logoImage {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Ensure logo remains clear and distinct */
 
 .copyright {
     font-size: 14px;

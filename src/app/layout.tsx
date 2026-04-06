@@ -15,7 +15,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Chai Café | Premium Authentic Indian Chai",
+  title: "ChaiAdda | Premium Authentic Indian Chai",
   description: "Experience the soul of India in every sip. A premium, scalable franchise brand.",
 };
 

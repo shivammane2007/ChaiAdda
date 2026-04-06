@@ -20,7 +20,7 @@ export function FranchiseHero() {
             <div className={styles.content}>
                 <div className={styles.container}>
                     <span className={styles.badge}>Business Opportunity</span>
-                    <h1 className={styles.headline}>Partner with India’s<br />Fastest Growing Chai Brand</h1>
+                    <h1 className={styles.headline}>Partner with India’s<br />Fastest Growing ChaiAdda</h1>
                     <p className={styles.subtext}>
                         Join a network of successful entrepreneurs. Low investment, high ROI, and a brand that customers love.
                     </p>

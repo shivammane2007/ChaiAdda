@@ -2,13 +2,18 @@
 
 import * as React from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import styles from "./Navbar.module.css";
 import { clsx } from "clsx";
 
+import { usePathname } from "next/navigation";
+
 export function Navbar() {
+    const pathname = usePathname();
+    const isHeroPage = pathname === "/" || pathname === "/franchise";
     const [isOpen, setIsOpen] = React.useState(false);
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isVisible, setIsVisible] = React.useState(true);
@@ -54,16 +59,29 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const isAtTop = !isScrolled;
+    const showHeroStyles = isHeroPage && isAtTop;
+
     return (
         <nav className={clsx(
             styles.navbar, 
             isScrolled && styles.scrolled,
-            !isVisible && styles.navHidden
+            !isVisible && styles.navHidden,
+            showHeroStyles && styles.heroMode
         )}>
             <div className={styles.container}>
                 <div className={styles.logoWrapper}>
                     <Link href="/" className={styles.logo}>
-                        CHAI<span className={styles.dot}>.</span>
+                        <div className={styles.logoContainer}>
+                            <NextImage
+                                src="/images/logo.png"
+                                alt="ChaiAdda Logo"
+                                width={120}
+                                height={60}
+                                className={styles.logoImage}
+                                priority
+                            />
+                        </div>
                     </Link>
                 </div>
 

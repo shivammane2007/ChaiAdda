@@ -7,14 +7,14 @@ import { StoryModern } from "@/components/story/StoryModern";
 
 export const metadata = {
     title: "Our Story | 40 Years of Brewing Tradition",
-    description: "Discover the heritage behind Chai Brand. From a small stall in Mumbai to a global chai revolution.",
+    description: "Discover the heritage behind ChaiAdda. From a small stall in Mumbai to a global chai revolution.",
 };
 
 export default function StoryPage() {
     return (
         <main>
             <Navbar />
-            <div style={{ paddingTop: '80px' }}> {/* Offset fixed header */}
+            <div className="navbar-offset">
                 <StoryHero />
                 <StoryValues />
                 <ProcessTimeline />
