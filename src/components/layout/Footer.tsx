@@ -8,7 +8,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { 
     Facebook, 
     Instagram, 
-    Twitter, 
     Linkedin, 
     Youtube,
     Sparkles
