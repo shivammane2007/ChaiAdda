@@ -34,6 +34,20 @@ const stores = [
         area: "Cyber Hub",
         address: "Unit 2, Cyber Hub, DLF Cyber City, Phase 2, Gurugram 122002",
         phone: "+91 98123 45678"
+    },
+    {
+        id: 5,
+        city: "Pune",
+        area: "Koregaon Park",
+        address: "Lane 7, Koregaon Park, Near Osho Ashram, Pune 411001",
+        phone: "+91 98300 11223"
+    },
+    {
+        id: 6,
+        city: "Hyderabad",
+        area: "Jubilee Hills",
+        address: "Road No. 36, Jubilee Hills, Near Metro Station, Hyderabad 500033",
+        phone: "+91 98400 33445"
     }
 ];
 

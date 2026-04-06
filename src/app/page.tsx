@@ -2,8 +2,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { Philosophy } from "@/components/home/Philosophy";
-import { FranchiseTeaser } from "@/components/home/FranchiseTeaser";
 import { FeaturesSection } from "@/components/home/FeaturesSection";
+import { BestSellers } from "@/components/home/BestSellers";
+import { AddaCulture } from "@/components/home/AddaCulture";
 
 export default function Home() {
   return (
@@ -11,12 +12,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Philosophy />
-      {/* 
-        TODO: 
-        - Best Sellers 
-        - Visual Storytelling 
-      */}
-      <FranchiseTeaser />
+      <BestSellers />
+      <AddaCulture />
       <FeaturesSection />
       <Footer />
     </main>

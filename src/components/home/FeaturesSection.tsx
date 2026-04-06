@@ -63,7 +63,7 @@ export function FeaturesSection() {
             
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Why Choose Chai Café?</h2>
+                    <h2 className={styles.title}>Why Choose ChaiAdda?</h2>
                     <p className={styles.subtitle}>Bringing the premium Indian heritage to your cup with every sip.</p>
                 </div>
 
