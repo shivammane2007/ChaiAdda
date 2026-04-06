@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { Philosophy } from "@/components/home/Philosophy";
 import { FranchiseTeaser } from "@/components/home/FranchiseTeaser";
+import { FeaturesSection } from "@/components/home/FeaturesSection";
 
 export default function Home() {
   return (
@@ -13,10 +14,10 @@ export default function Home() {
       {/* 
         TODO: 
         - Best Sellers 
-        - USP Section
         - Visual Storytelling 
       */}
       <FranchiseTeaser />
+      <FeaturesSection />
       <Footer />
     </main>
   );

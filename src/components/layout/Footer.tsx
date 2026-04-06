@@ -47,14 +47,19 @@ export function Footer() {
                         <h4 className={styles.columnTitle}>Join our Journey</h4>
                         <p className={styles.newsletterText}>Get updates on new blends and store openings.</p>
                         <form className={styles.form}>
-                            <input type="email" placeholder="Your email address" className={styles.input} />
+                            <input 
+                                type="email" 
+                                placeholder="Your email address" 
+                                className={styles.input}
+                                suppressHydrationWarning
+                            />
                             <Button type="submit" variant="primary" size="sm">Subscribe</Button>
                         </form>
                     </div>
                 </div>
 
                 <div className={styles.bottomSection}>
-                    <p className={styles.copyright}>© {new Date().getFullYear()} CHAI Brand. All rights reserved.</p>
+                    <p className={styles.copyright} suppressHydrationWarning>© {new Date().getFullYear()} CHAI Brand. All rights reserved.</p>
                     <div className={styles.legalLinks}>
                         <Link href="/privacy" className={styles.legalLink}>Privacy Policy</Link>
                         <Link href="/terms" className={styles.legalLink}>Terms of Service</Link>
