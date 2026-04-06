@@ -4,24 +4,30 @@
     left: 0;
     right: 0;
     height: var(--header-height);
-    z-index: 1000;
-    transition: all 0.3s ease;
+    z-index: 1100; /* Extremely safe z-index */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     background: transparent;
     color: var(--foreground);
+    will-change: transform;
 }
 
 .scrolled {
-    background: rgba(255, 255, 255, 0.85);
-    /* Light mode glass */
-    backdrop-filter: blur(12px);
+    background: rgba(250, 249, 246, 0.85); /* Slightly more solid creamy glass */
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
     border-bottom: 1px solid var(--border);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 :global([data-theme='dark']) .scrolled {
-    background: rgba(18, 18, 18, 0.85);
-    /* Dark mode glass */
+    background: rgba(18, 18, 18, 0.85); /* Slightly more solid dark glass */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navHidden {
+    transform: translateY(-100%) !important;
+    box-shadow: none !important;
+    pointer-events: none; 
 }
 
 .container {

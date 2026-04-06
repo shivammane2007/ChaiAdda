@@ -10,18 +10,56 @@ import { clsx } from "clsx";
 
 export function Navbar() {
     const [isOpen, setIsOpen] = React.useState(false);
-    const [scrolled, setScrolled] = React.useState(false);
+    const [isScrolled, setIsScrolled] = React.useState(false);
+    const [isVisible, setIsVisible] = React.useState(true);
+    const lastScrollY = React.useRef(0);
 
     React.useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+                    const delta = currentScrollY - lastScrollY.current;
+
+                    // Update scrolled state for background/blur (earlier threshold)
+                    setIsScrolled(currentScrollY > 20);
+
+                    // Show/Hide logic for premium scroll experience
+                    if (currentScrollY <= 80) {
+                        // Always show at the top 
+                        setIsVisible(true);
+                    } else if (Math.abs(delta) > 10) { 
+                        // Threshold for scroll delta to avoid jitter
+                        if (delta > 0) {
+                            // Scrolling down -> hide
+                            setIsVisible(false);
+                            setIsOpen(false); 
+                        } else {
+                            // Scrolling up -> show
+                            setIsVisible(true);
+                        }
+                    }
+
+                    lastScrollY.current = currentScrollY;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
-        window.addEventListener("scroll", handleScroll);
+
+        // Use passive listener for better scroll performance
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
-        <nav className={clsx(styles.navbar, scrolled && styles.scrolled)}>
+        <nav className={clsx(
+            styles.navbar, 
+            isScrolled && styles.scrolled,
+            !isVisible && styles.navHidden
+        )}>
             <div className={styles.container}>
                 <div className={styles.logoWrapper}>
                     <Link href="/" className={styles.logo}>
